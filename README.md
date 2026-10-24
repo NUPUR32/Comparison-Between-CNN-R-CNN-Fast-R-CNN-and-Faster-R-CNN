@@ -1,325 +1,390 @@
-# Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN
 <div align="center">
 
-# ⚡💜 CNN × R-CNN × FAST R-CNN × FASTER R-CNN 💜⚡
+<!-- ANIMATED NEON HEADER -->
 
-### 🔮 A NEON-STYLE COMPUTER VISION PROJECT 🔮
+<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=800&size=27&duration=2500&pause=700&color=00F7FF&center=true&vCenter=true&width=850&lines=⚡+COMPUTER+VISION+PROJECT+⚡;CNN+%7C+R-CNN+%7C+FAST+R-CNN;FASTER+R-CNN+%7C+OBJECT+DETECTION;ENTER+THE+NEURAL+NETWORK+UNIVERSE" alt="Animated project title" />
 
-**Exploring the Evolution of Deep Learning-Based Object Detection**
+<br/>
 
-<br>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:09001A,50:17002F,100:001F3F&height=5&section=header" width="100%" alt="Neon divider"/>
 
-[![Python](https://img.shields.io/badge/Python-3.10+-00F5FF?style=for-the-badge&logo=python&logoColor=black)](https://www.python.org/)
+### 💠 DEEP LEARNING × COMPUTER VISION × OBJECT DETECTION 💠
+
+**Understanding the evolution of object detection through four neural-network approaches.**
+
+<br/>
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-00F7FF?style=for-the-badge&logo=python&logoColor=black)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-FF00FF?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-00FF99?style=for-the-badge&logo=opencv&logoColor=black)](https://opencv.org/)
-[![Google Colab](https://img.shields.io/badge/Google-Colab-00F5FF?style=for-the-badge&logo=googlecolab&logoColor=black)](https://colab.research.google.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-FF00FF?style=for-the-badge)](LICENSE)
+[![Colab](https://img.shields.io/badge/Google-Colab-00F7FF?style=for-the-badge&logo=googlecolab&logoColor=black)](https://colab.research.google.com/)
+[![License](https://img.shields.io/badge/License-MIT-FF00FF?style=for-the-badge)](LICENSE)
 
-<br>
+<br/>
 
-**🔹 FOUR ARCHITECTURES · ONE COMPUTER VISION JOURNEY · ENDLESS POSSIBILITIES 🔹**
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:001F3F,50:4B0082,100:09001A&height=5&section=header" width="100%" alt="Neon divider"/>
+
+### 🔴 SYSTEM STATUS: EXPLORING THE FUTURE OF OBJECT DETECTION 🔵
 
 </div>
 
 ---
 
-## 🌌 `01` — PROJECT VISION
+# 🌌 `01 // PROJECT OVERVIEW`
 
-> 💡 **Can we make object detection faster without sacrificing detection quality?**
+## ⚡ Welcome to the Neural Vision Lab
 
-This project explores the evolution of convolutional neural networks and region-based object detection architectures. It examines how CNN feature extraction, region proposals, shared feature maps, and learned proposal networks contribute to object detection.
+Computer vision enables machines to understand and interpret visual information. From identifying everyday objects to locating vehicles and pedestrians, deep learning has transformed the way computers analyze images.
 
-The project covers four approaches:
+This project explores four important approaches:
 
-| ⚡ Model | 🎯 Primary Focus |
-|---|---|
-| 🔵 **CNN** | Image classification and feature extraction |
-| 🟣 **R-CNN** | Region-based object detection |
-| 🟢 **Fast R-CNN** | Shared CNN features and RoI pooling |
-| 🔴 **Faster R-CNN** | Integrated Region Proposal Network |
+- 🔵 **CNN** — Convolutional Neural Network
+- 🟣 **R-CNN** — Region-Based Convolutional Neural Network
+- 🟢 **Fast R-CNN** — An improved region-based detection approach
+- 🔴 **Faster R-CNN** — An object detector with a learned Region Proposal Network
 
-🎯 **Mission:** Understand the architecture, workflow, computational cost, and evaluation of each approach through Python-based experiments.
+The project focuses on understanding their architectures, feature-extraction strategies, region-proposal mechanisms, computational costs, and evaluation methods.
 
----
+> 💡 **Core research question:** How does integrating region proposals and sharing convolutional features affect the efficiency and performance of object detection?
 
-## 🧬 `02` — THE FOUR MODELS
+### 🎯 Project Mission
 
-### 🔵 01. CONVOLUTIONAL NEURAL NETWORK
+Our objectives are to:
 
-**`FEATURE EXTRACTION → CLASSIFICATION`**
-
-CNNs learn visual features such as edges, textures, shapes, and higher-level patterns using convolutional and pooling layers.
-
-✨ **Key Features**
-- 🧠 Learns hierarchical image representations.
-- 🔍 Extracts spatial features.
-- ⚡ Supports efficient image classification.
-- 🧩 Can serve as the backbone of an object detector.
-
-**Limitation:** A standard CNN classifier predicts image-level labels; it does not inherently generate object bounding boxes.
+- 🧠 Understand convolutional feature extraction.
+- 🔍 Explore region proposal generation.
+- 📦 Understand bounding-box prediction and object localization.
+- ⚡ Study computational improvements across region-based detectors.
+- 🧪 Experiment with PASCAL VOC 2007.
+- 📊 Record meaningful model-performance measurements.
+- 🔬 Understand the trade-offs between computational efficiency and detection quality.
+- 🚀 Build a foundation for more advanced computer vision systems.
 
 ---
 
-### 🟣 02. REGION-BASED CNN (R-CNN)
+# 🧬 `02 // FOUR NEURAL NETWORK APPROACHES`
 
-**`REGION PROPOSALS → CNN FEATURES → CLASSIFICATION`**
+## 🔵 MODEL 01 — CONVOLUTIONAL NEURAL NETWORK
 
-R-CNN identifies candidate regions in an image and processes each region using a CNN to extract features for object classification and bounding-box refinement.
+### `IMAGE → FEATURE EXTRACTION → CLASSIFICATION`
 
-✨ **Key Features**
-- 🎯 Generates candidate object regions.
-- 🔬 Extracts features from individual proposals.
-- 📦 Supports bounding-box prediction.
-- 🐢 Repeated feature extraction makes the original approach computationally expensive.
+A Convolutional Neural Network learns spatial patterns from images using convolutional filters, nonlinear activation functions, and pooling operations.
 
----
+Early layers may identify edges and textures, while deeper layers learn increasingly complex visual representations.
 
-### 🟢 03. FAST R-CNN
+**⚙️ Architecture components**
 
-**`SHARED FEATURES → RoI POOLING → DETECTION`**
+1. **Convolutional layers:** Extract visual features.
+2. **Activation functions:** Introduce nonlinear learning.
+3. **Pooling layers:** Reduce spatial dimensions.
+4. **Fully connected or classification layers:** Produce class predictions.
 
-Fast R-CNN processes the entire image through a CNN backbone and uses the resulting feature map for multiple region proposals.
+**✨ Advantages**
 
-✨ **Key Features**
-- ⚡ Shares convolutional computation across proposals.
-- 🧩 Uses RoI pooling to obtain fixed-size region features.
-- 🎯 Predicts object classes and bounding-box offsets.
-- 🚀 Reduces redundant computation compared with original R-CNN.
+- Effective visual feature learning.
+- Supports image classification.
+- Can provide a backbone for object-detection systems.
+- Offers a relatively straightforward starting point for computer vision experiments.
 
----
+**⚠️ Limitations**
 
-### 🔴 04. FASTER R-CNN
+A standard CNN classifier does not inherently generate bounding boxes. Object detection requires additional components for localization and classification.
 
-**`BACKBONE → REGION PROPOSAL NETWORK → RoI DETECTION`**
-
-Faster R-CNN introduces a Region Proposal Network (RPN) that learns to generate candidate object regions using shared image features.
-
-✨ **Key Features**
-- 🤖 Learns region proposals through an RPN.
-- 🔗 Shares features between proposal generation and detection.
-- 📦 Predicts object classes and refines bounding boxes.
-- ⚡ Avoids relying on external Selective Search during normal proposal generation.
+**🌍 Applications:** Image recognition, image categorization, medical-image analysis, and feature extraction.
 
 ---
 
-## 📊 `03` — NEON MODEL COMPARISON
+## 🟣 MODEL 02 — REGION-BASED CNN (R-CNN)
+
+### `IMAGE → REGION PROPOSALS → CNN FEATURES → CLASSIFICATION`
+
+R-CNN approaches object detection by identifying candidate regions that may contain objects and extracting CNN features from each candidate region.
+
+The extracted features are then used to classify objects, with bounding-box refinement improving localization.
+
+**⚙️ Workflow**
+
+1. Receive an input image.
+2. Generate candidate regions, commonly using Selective Search.
+3. Prepare the proposed regions for CNN processing.
+4. Extract features from each region.
+5. Classify regions and refine bounding boxes.
+
+**✨ Advantages**
+
+- Introduces region-based object detection.
+- Predicts object categories and locations.
+- Provides an important foundation for later region-based detectors.
+
+**⚠️ Limitations**
+
+The original R-CNN pipeline repeatedly computes CNN features for different regions. This creates significant computational overhead and makes training and inference slower.
+
+**🌍 Applications:** Object localization, image understanding, and research into region-based detection.
+
+---
+
+## 🟢 MODEL 03 — FAST R-CNN
+
+### `IMAGE → SHARED FEATURE MAP → RoI POOLING → DETECTION`
+
+Fast R-CNN improves on the original R-CNN approach by computing convolutional features for the entire image and sharing them across region proposals.
+
+RoI pooling extracts fixed-size features from proposed regions, enabling classification and bounding-box regression.
+
+**⚙️ Workflow**
+
+1. Pass the complete image through a CNN backbone.
+2. Generate candidate object regions.
+3. Map the candidate regions onto the feature map.
+4. Apply RoI pooling to obtain fixed-size features.
+5. Predict object classes and bounding-box offsets.
+
+**✨ Advantages**
+
+- Shares convolutional computation across proposals.
+- Reduces redundant feature extraction.
+- Supports classification and localization in a unified network.
+- Improves computational efficiency compared with original R-CNN.
+
+**⚠️ Limitations**
+
+The original Fast R-CNN pipeline relies on an external region-proposal algorithm such as Selective Search. Proposal generation can remain a significant source of latency.
+
+**🌍 Applications:** Region-based object detection and efficient feature reuse.
+
+---
+
+## 🔴 MODEL 04 — FASTER R-CNN
+
+### `IMAGE → CNN BACKBONE → RPN → RoI FEATURES → DETECTIONS`
+
+Faster R-CNN introduces a Region Proposal Network (RPN), which learns to identify candidate object regions using convolutional features.
+
+The proposal network and detection network share image features, integrating proposal generation into the overall architecture.
+
+**⚙️ Workflow**
+
+1. Extract feature maps from the input image.
+2. Generate candidate regions using the RPN.
+3. Score candidate proposals and refine their coordinates.
+4. Extract region features through RoI-based operations.
+5. Predict object categories.
+6. Refine bounding boxes to improve localization.
+
+**✨ Advantages**
+
+- Learns region proposals instead of depending on external Selective Search.
+- Shares features between proposal generation and detection.
+- Supports object classification and localization.
+- Provides an integrated architecture for object detection.
+
+**⚠️ Limitations**
+
+- Requires more complex architecture and training.
+- Computational demands depend on backbone, image size, and proposal settings.
+- Performance depends on training data, hyperparameters, and evaluation conditions.
+
+**🌍 Applications:** Autonomous driving research, object localization, robotics, and image understanding.
+
+---
+
+# 📊 `03 // NEON COMPARISON MATRIX`
 
 | ⚙️ Feature | 🔵 CNN | 🟣 R-CNN | 🟢 Fast R-CNN | 🔴 Faster R-CNN |
 |---|---|---|---|---|
-| Main task | Classification | Detection | Detection | Detection |
-| Region proposals | Not required for classification | External | External | Learned RPN |
-| Shared CNN features | Depends on architecture | ❌ | ✅ | ✅ |
-| RoI pooling | Not required for standard classification | Original pipeline differs | ✅ | RoI-based feature extraction |
-| Bounding boxes | Not in standard classifier | ✅ | ✅ | ✅ |
-| Proposal generation learned | Not applicable | ❌ | ❌ | ✅ |
-| Main strength | Feature learning | Region-based detection | Efficient feature reuse | Integrated proposal generation |
+| Primary task | Classification | Detection | Detection | Detection |
+| Region proposals | Not needed for standard classification | External | External | Learned RPN |
+| Feature extraction | Whole image | Repeated for regions | Shared feature map | Shared feature map |
+| RoI pooling | Not required for standard classification | Original pipeline differs | Yes | RoI-based feature extraction |
+| Bounding-box prediction | Not in standard classifier | Yes | Yes | Yes |
+| Proposal generation learned | Not applicable | No | No | Yes |
+| Redundant CNN computation | Architecture-dependent | High | Reduced | Reduced |
+| Main advantage | Feature learning | Region-based detection | Shared feature computation | Integrated proposal generation |
+| Main limitation | No localization in standard classifier | Computational overhead | External proposals | More complex detector |
 
-> ⚠️ **Fair-comparison rule:** CNN image-classification accuracy is not directly comparable to object-detection mAP. Use metrics appropriate to each task and clearly document the evaluation protocol.
+### 🧠 Understanding the Evolution
+
+**CNN → R-CNN → Fast R-CNN → Faster R-CNN**
+
+- 🔵 **CNN:** Learns features from images.
+- 🟣 **R-CNN:** Applies CNN features to candidate regions.
+- 🟢 **Fast R-CNN:** Shares convolutional features across regions.
+- 🔴 **Faster R-CNN:** Learns region proposals with an RPN.
+
+This progression illustrates how object-detection research sought to reduce redundant computation while retaining the ability to classify and localize objects.
+
+> ⚠️ A CNN classification score cannot be fairly compared directly with detection mAP. For a valid experiment, evaluate classification and object detection using appropriate metrics.
 
 ---
 
-## 🗂️ `04` — PROJECT ARCHITECTURE
+# 🗂️ `04 // PROJECT STRUCTURE`
 
 ```text
-⚡ Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN
+Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN/
 │
-├── 🧠 CNN_Classification.ipynb
-│   └── Image classification and CNN features
-│
-├── 🔍 R_CNN_Proposal.ipynb
-│   └── Region proposal demonstration
-│
-├── ⚡ Fast_R_CNN_Proposal.ipynb
-│   └── Region proposals and Fast R-CNN concepts
-│
-├── 🚀 Faster_R_CNN.ipynb
-│   └── Faster R-CNN object detection
-│
-├── 📘 README.md
-│   └── Project documentation
-│
-└── 📄 LICENSE
-    └── MIT License
+├── CNN_Classification.ipynb
+├── R_CNN_Proposal.ipynb
+├── Fast_R_CNN_Proposal.ipynb
+├── Faster_R_CNN.ipynb
+├── README.md
+└── LICENSE
 ```
 
+📌 The structure above intentionally excludes a `pic` folder.
+
 ---
 
-## 🗃️ `05` — DATASET: PASCAL VOC 2007
+# 🗃️ `05 // DATASET — PASCAL VOC 2007`
 
-### 🌐 The Visual World in Data
+## 🌐 A Benchmark for Visual Recognition
 
-This project is intended to use the **PASCAL VOC 2007** dataset for object-detection experiments.
+The PASCAL VOC 2007 dataset is used for object-recognition and detection experiments.
 
-📦 The dataset includes:
-- 🖼️ Images containing real-world objects.
-- 📍 Annotated object bounding boxes.
-- 🏷️ Object-category labels.
-- 🎯 Ground-truth annotations for model evaluation.
+It includes images with object-category labels and bounding-box annotations.
 
-**Example categories:**
+### 🏷️ Example categories
 
-`🚗 Car` · `🚲 Bicycle` · `🐕 Dog` · `🐈 Cat` · `🧍 Person` · `🪑 Chair` · `🚌 Bus`
+🚗 Car · 🚲 Bicycle · 🐕 Dog · 🐈 Cat · 🧍 Person · 🪑 Chair · 🚌 Bus · 🍾 Bottle
 
-🔗 **Official Dataset:**  
+### 📦 Dataset preparation
+
+1. Download or load the dataset.
+2. Read the image annotations.
+3. Extract object labels and bounding-box coordinates.
+4. Prepare images for the relevant model.
+5. Run training or inference.
+6. Compare predictions with ground-truth annotations.
+
+🔗 **Official dataset documentation:**  
 https://www.robots.ox.ac.uk/~vgg/projects/pascal/VOC/voc2007/
 
-📌 Dataset handling and use must comply with the applicable dataset terms.
+⚠️ Follow the dataset's applicable usage terms. Do not upload the full dataset to GitHub unless permitted.
 
 ---
 
-## 🚀 `06` — LAUNCH YOUR EXPERIMENT
+# 🚀 `06 // EXECUTION GUIDE`
 
-### 💻 Option A: Google Colab
+## 💻 Option A — Google Colab
 
-Run the notebooks in a cloud-based Python environment.
-
-| 🧪 Experiment | ▶️ Launch |
+| 🧪 Model | ▶️ Open Notebook |
 |---|---|
-| 🔵 CNN Classification | [OPEN NOTEBOOK](https://colab.research.google.com/github/NUPUR32/Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN/blob/main/CNN_Classification.ipynb) |
-| 🟣 R-CNN Proposals | [OPEN NOTEBOOK](https://colab.research.google.com/github/NUPUR32/Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN/blob/main/R_CNN_Proposal.ipynb) |
-| 🟢 Fast R-CNN Proposals | [OPEN NOTEBOOK](https://colab.research.google.com/github/NUPUR32/Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN/blob/main/Fast_R_CNN_Proposal.ipynb) |
-| 🔴 Faster R-CNN | [OPEN NOTEBOOK](https://colab.research.google.com/github/NUPUR32/Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN/blob/main/Faster_R_CNN.ipynb) |
+| 🔵 CNN Classification | [Launch CNN](https://colab.research.google.com/github/NUPUR32/Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN/blob/main/CNN_Classification.ipynb) |
+| 🟣 R-CNN Proposals | [Launch R-CNN](https://colab.research.google.com/github/NUPUR32/Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN/blob/main/R_CNN_Proposal.ipynb) |
+| 🟢 Fast R-CNN Proposals | [Launch Fast R-CNN](https://colab.research.google.com/github/NUPUR32/Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN/blob/main/Fast_R_CNN_Proposal.ipynb) |
+| 🔴 Faster R-CNN | [Launch Faster R-CNN](https://colab.research.google.com/github/NUPUR32/Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN/blob/main/Faster_R_CNN.ipynb) |
 
-**⚡ Execution steps**
+### ⚡ Steps
 
-1. Open a notebook in Colab.
+1. Open the required notebook.
 2. Select **Runtime → Change runtime type**.
 3. Select a GPU if available.
 4. Run the cells in order.
-5. Allow required datasets and pretrained weights to download.
-6. Inspect the predictions, training output, and evaluation results.
+5. Wait for dependencies, dataset files, and pretrained weights to load.
+6. Inspect the model outputs and evaluation results.
 
-⚠️ The R-CNN and Fast R-CNN notebooks are named proposal demonstrations. Confirm that they implement complete detectors before treating their outputs as full detection results.
-
-### 🖥️ Option B: Run Locally
+## 🖥️ Option B — Local Environment
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/NUPUR32/Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN.git
-```
-
-Enter the project directory:
-
-```bash
 cd Comparison-Between-CNN-R-CNN-Fast-R-CNN-and-Faster-R-CNN
 ```
 
-Install the basic dependencies:
+Install basic dependencies:
 
 ```bash
 python -m pip install jupyter torch torchvision numpy matplotlib pillow opencv-contrib-python
 ```
 
-Launch Jupyter Notebook:
+Launch Jupyter:
 
 ```bash
 jupyter notebook
 ```
 
-📌 Install any additional dependencies required by the individual notebooks.
+Use a PyTorch installation compatible with your hardware and CUDA configuration.
 
 ---
 
-## 📈 `07` — PERFORMANCE LAB
+# 📈 `07 // PERFORMANCE & EVALUATION LAB`
 
-### 🔬 What Should Be Compared?
+## 🔬 What Should Be Measured?
 
-| 📊 Metric | 🧾 Purpose |
+| 📊 Metric | 💡 Meaning |
 |---|---|
-| 🎯 Detection mAP | Measures object-detection performance |
+| 🎯 Detection mAP | Evaluates object-detection quality |
 | 📦 IoU | Measures overlap between predicted and ground-truth boxes |
-| ⏱️ Inference time | Measures time taken to process an image |
+| ⏱️ Inference time | Measures processing time per image |
 | ⚡ Throughput | Measures images processed per second |
-| 🧠 Training time | Records the time needed to train a model |
-| 💾 Model size | Measures storage required for model weights |
-| 🖥️ Resource usage | Records CPU/GPU memory consumption |
+| 🧠 Training time | Measures total training duration |
+| 💾 Model size | Measures storage occupied by weights |
+| 🖥️ Resource consumption | Records CPU/GPU memory usage |
 
-### 🧪 Experimental Rules
+### 🧪 Experimental protocol
 
-- Use the same dataset split for comparable detection models.
-- Keep image preprocessing consistent.
-- Record hardware, epochs, and hyperparameters.
+For a meaningful comparison:
+
+- Use the same dataset split for comparable detectors.
+- Keep preprocessing consistent.
+- Record training epochs and hyperparameters.
+- Document the hardware and software environment.
 - Use consistent IoU thresholds and mAP evaluation settings.
-- Document whether timing includes preprocessing and region proposal generation.
-- Separate classification metrics from detection metrics.
-- Report actual experimental results rather than assumed values.
+- Record whether timing includes proposal generation and preprocessing.
+- Clearly separate image classification metrics from detection metrics.
+- Report only measurements actually produced by the experiments.
 
-**No fabricated benchmarks. Only measured results.**
+### 📌 Results table template
 
----
+| Model | Evaluation task | Metric | Measured result |
+|---|---|---|---|
+| CNN | Classification | Accuracy | Add measured value |
+| R-CNN | Object detection | mAP | Add measured value |
+| Fast R-CNN | Object detection | mAP | Add measured value |
+| Faster R-CNN | Object detection | mAP | Add measured value |
 
-## 🌍 `08` — REAL-WORLD APPLICATIONS
-
-| 🌟 Application | 💡 Use Case |
-|---|---|
-| 🚗 Autonomous Driving | Detecting vehicles, pedestrians, and road objects |
-| 🛡️ Surveillance | Identifying objects in video frames |
-| 🤖 Robotics | Recognizing and locating objects |
-| 🏭 Industrial Inspection | Detecting products and defects |
-| 🚦 Traffic Monitoring | Identifying road users |
-| 🖼️ Image Understanding | Localizing objects in photographs |
+**Do not fill this table with estimated results.** The metric and evaluation protocol should be documented for every model.
 
 ---
 
-## ⚠️ `09` — LIMITATIONS & FUTURE SCOPE
+# 🌍 `08 // REAL-WORLD APPLICATIONS`
 
-### Current Limitations
-- Training performance depends on data, hyperparameters, and model implementation.
-- Selective Search can add substantial processing overhead.
-- Short training runs are not sufficient for reliable final benchmarks.
-- Different tasks require different evaluation metrics.
-- Proposal demonstrations alone do not establish full detector performance.
+### 🚗 Autonomous Driving
+Detecting vehicles, pedestrians, and other road objects.
 
-### 🚀 Future Enhancements
-- 📊 Implement a consistent evaluation pipeline for all detection models.
-- 🎯 Calculate mAP at documented IoU thresholds.
-- ⏱️ Measure inference time on the same hardware.
-- 📉 Visualize training and validation curves.
-- 📦 Save trained model weights and evaluation summaries.
-- 🧪 Expand experiments with different training configurations.
+### 🛡️ Surveillance
+Identifying objects and tracking visual activity.
 
----
+### 🤖 Robotics
+Recognizing objects and locating them in the environment.
 
-## 📚 `10` — RESEARCH REFERENCES
+### 🏭 Industrial Inspection
+Identifying products, components, and possible defects.
 
-1. **R-CNN** — Girshick et al., *Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation*, CVPR 2014.
-2. **Fast R-CNN** — Ross Girshick, *Fast R-CNN*, ICCV 2015.  
-   https://openaccess.thecvf.com/content_iccv_2015/html/Girshick_Fast_R-CNN_ICCV_2015_paper.html
-3. **Faster R-CNN** — Ren et al., *Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks*, NeurIPS 2015.
-4. **PASCAL VOC 2007** — Official dataset documentation.  
-   https://www.robots.ox.ac.uk/~vgg/projects/pascal/VOC/voc2007/
+### 🚦 Traffic Monitoring
+Detecting road users and analyzing traffic scenes.
+
+### 🖼️ Image Understanding
+Locating objects and interpreting visual content.
 
 ---
 
-## 👩‍💻 `11` — PROJECT AUTHOR
+# 🔮 `09 // FUTURE SCOPE`
 
-<div align="center">
+Potential improvements include:
 
-### 💜 NUPUR
-
-**Computer Science & Engineering | Deep Learning | Computer Vision**
-
-[![GitHub](https://img.shields.io/badge/GitHub-NUPUR32-FF00FF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/NUPUR32)
-
-</div>
-
----
-
-## 📄 `12` — LICENSE
-
-This project is licensed under the **MIT License**.
-
-See the [`LICENSE`](LICENSE) file for details.
+- 📊 Building a unified object-detection evaluation pipeline.
+- 🎯 Computing mAP at documented IoU thresholds.
+- ⏱️ Measuring inference time under consistent conditions.
+- 📉 Plotting training and validation curves.
+- 📦 Saving model checkpoints and result files.
+- 🧪 Testing different backbones and hyperparameters.
+- 🚀 Comparing additional object-detection architectures.
+- 📚 Documenting reproducible experiments and limitations.
 
 ---
 
-<div align="center">
+# 📚 `10 // RESEARCH REFERENCES`
 
-### ⚡ THINK DEEPER. DETECT SMARTER. BUILD BETTER. ⚡
-
-**💜 Built with Python · PyTorch · OpenCV · Google Colab 💜**
-
-⭐ If you find this project useful, consider giving the repository a star!
-
-</div>
+1. **R-CNN:** Girshick et al., *Rich Feature Hierarchies for Accurate Object Detection
